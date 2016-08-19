@@ -1,0 +1,10 @@
+<% @microposts.each do |micro| %>
+  <p>
+    <strong>Content:</strong>
+    <%= micro.content %>
+    <%= link_to 'Show', user_micropost_path(micro.user, micro) %>
+    <%= link_to 'Edit', edit_user_micropost_path(micro.user, micro) %>
+    <%= link_to 'Delete', [micro.user, micro], method: :delete, data: {confirm: "Are you sure"} %>
+  </p>
+<% end %>
+<%= link_to 'Go to Users', user_path(@user) %>

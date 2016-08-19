@@ -16,7 +16,7 @@ class MicropostsController < ApplicationController
 
   def edit
     @user = User.find(params[:user_id])
-    @micro = @user.micro.find(params[:id])
+    @micro = @user.microposts.find(params[:id])
   end
 
   def create
@@ -31,8 +31,8 @@ class MicropostsController < ApplicationController
 
   def update
     @user = User.find(params[:user_id])
-    @micro = @user.microposts.update(micro_params)
-    if @micro
+    @micro = @user.microposts.find(params[:id])
+    if @micro.update(micro_params)
       redirect_to user_micropost_path(@user, @micro)
     else
       render 'edit'

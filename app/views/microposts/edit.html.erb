@@ -1,0 +1,9 @@
+<%= form_for([@user, @micro]) do |f| %>
+  <p>
+    <%= f.label :Content %>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit 'Update New Content' %>
+  </p>
+<% end %>
