@@ -1,0 +1,8 @@
+<p>
+  <strong>Content:</strong>
+  <%= @micro.content %><br>
+  <%= link_to 'Edit', edit_user_micropost_path(@user, @micro) %>
+  <%= link_to 'Delete', [@micro.user, @micro], method: :delete, data: {confirm: "Are you Sure"} %>
+  <%= link_to 'Go to Index', user_microposts_path(@user) %>
+  
+</p>

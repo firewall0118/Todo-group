@@ -7,5 +7,5 @@
 <p>
   <%= link_to "Edit User", edit_user_path(@user) %><br>
   <%= link_to "Back", users_path %>
-  <%= button 'New Content', new_user_micropost_path(@user) %>
+  <%= button_to 'New Content', new_user_micropost_path(@user), :method => :get %>
 <p>

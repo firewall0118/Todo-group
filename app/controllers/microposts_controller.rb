@@ -1,17 +1,17 @@
 class MicropostsController < ApplicationController
   def index
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @microposts = @user.microposts.all
   end
 
   def new
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @micro = Micropost.new
   end
 
   def show
     @user = User.find(params[:user_id])
-    @micro = @user.micro.find(params[:id])
+    @micro = @user.microposts.find(params[:id])
   end
 
   def edit
@@ -41,7 +41,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     @user = User.find(params[:user_id])
-    @micro = @user.micro.find(params[:id])
+    @micro = @user.microposts.find(params[:id])
     @micro.destroy
     redirect_to user_microposts_path(@user)
   end
