@@ -3,6 +3,18 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+  
+  def new
+    @user = User.new
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def create
     @user = User.create(user_params)
     if @user.save
@@ -19,19 +31,6 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
-
-  end
-  
-  def new
-    @user = User.new
-  end
-  
-  def edit
-    @user = User.find(params[:id])
-  end
-  
-  def show
-    @user = User.find(params[:id])
   end
   
   def destroy
