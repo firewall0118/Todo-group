@@ -12,5 +12,6 @@
 
  *= require bootstrap.min
  *= require bootstrap_framework
+ *= require custom
  *= require_self
  */
