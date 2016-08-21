@@ -4,6 +4,13 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root "welcome#index"
+  # get  'welcome/home'
+  # get  'welcome/help'
+  get  'welcome/about'
+  get  'welcome/contact'
+  
+
+
   resources :users do
     resources :microposts
   end
