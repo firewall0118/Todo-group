@@ -1,38 +1,30 @@
-<h1 class="title">New User</h1>
-<%= form_for :user, url: users_path do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@user.errors.count, "error") %> prohibited
-        this user from being saved:
-      </h2>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= f.label :Name %>
-    <%= f.text_field :name %>
-  </p><br>
-  <p>
-    <%= f.label :Email %>
-    <%= f.text_field :email %>
-  </p><br>
-  <p>
-    <%= f.label :Password %>
-    <%= f.password_field :password %>
-  </p><br>
-  <p>
-    <%= f.label :Password_Confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </p><br>
-  <p>
-    <%= f.submit 'Create New User' %>
-  </p><br>
-  <p>
-    <%= link_to 'Back', users_path %>
-  </p>
-<% end %>
+<div class="row">
+  <div class="col-md-6, col-sm-offset-3">
+    <h1 class="title">Sign up</h1>
+    <%= form_for :user, url: users_path do |f| %>
+      <%= render 'shared/error_message' %>
+      <p>
+        <%= f.label :Name %>
+        <%= f.text_field :name %>
+      </p><br>
+      <p>
+        <%= f.label :Email %>
+        <%= f.text_field :email %>
+      </p><br>
+      <p>
+        <%= f.label :Password %>
+        <%= f.password_field :password %>
+      </p><br>
+      <p>
+        <%= f.label :password_confirmation, "Password Confirmation" %>
+        <%= f.password_field :password_confirmation %>
+      </p><br>
+      <p>
+        <%= f.submit 'Create New User', class: "btn btn-primary" %>
+      </p><br>
+      <p>
+        <%= link_to 'Back', users_path %>
+      </p>
+    <% end %>
+  </div>
+</div>
