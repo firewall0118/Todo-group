@@ -1,9 +1,9 @@
 <%= form_for([@user, @user.microposts.build]) do |f| %>
   <p>
     <%= f.label :Content %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, class: "form-control" %>
   </p>
   <p>
-    <%= f.submit 'Creat New Conte' %>
+    <%= f.submit 'Creat New Content', class: "btn btn-primary" %>
   </p>
 <% end %>

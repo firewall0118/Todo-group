@@ -5,19 +5,19 @@
       <%= render 'shared/error_message' %>
       <p>
         <%= f.label :Name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "form-control" %>
       </p><br>
       <p>
         <%= f.label :Email %>
-        <%= f.text_field :email %>
+        <%= f.text_field :email, class: "form-control" %>
       </p><br>
       <p>
         <%= f.label :Password %>
-        <%= f.password_field :password %>
+        <%= f.password_field :password, class: "form-control" %>
       </p><br>
       <p>
         <%= f.label :password_confirmation, "Password Confirmation" %>
-        <%= f.password_field :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
       </p><br>
       <p>
         <%= f.submit 'Create New User', class: "btn btn-primary" %>

@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
+      flash[:success] = "Welcome to the TodoGroup!"
       redirect_to @user
     else
       render 'new'
