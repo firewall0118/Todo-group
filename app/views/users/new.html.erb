@@ -22,10 +22,17 @@
     <%= f.text_field :email %>
   </p><br>
   <p>
+    <%= f.label :Password %>
+    <%= f.password_field :password %>
+  </p><br>
+  <p>
+    <%= f.label :Password_Confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </p><br>
+  <p>
     <%= f.submit 'Create New User' %>
   </p><br>
   <p>
     <%= link_to 'Back', users_path %>
   </p>
-
 <% end %>
