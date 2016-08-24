@@ -1,29 +1,20 @@
-<h1>Edit User</h1>
+<h1>Update your profile</h1>
 <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@user.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <p>
-    <%= f.label :Name %>
-    <%= f.text_field :name %>
-  </p><br>
-  <p>
-    <%= f.label :Name %>
-    <%= f.text_field :email %>
-  </p><br>
-  <p>
-    <%= f.submit 'Update User', class: "btn btn-primary" %>
-  </p>
+  <%= render 'shared/error_message' %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %>
+
+  <%= f.label :password_confirmation, "Confirmation" %>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+  <%= f.submit "Save changes", class: "btn btn-primary" %>
+
 <% end %>
 
