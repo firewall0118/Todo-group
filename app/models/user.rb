@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   before_save {self.email = email.downcase}
   # before_save { email.downcase! }
+  before_create :create_activation_digest
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
@@ -43,5 +44,11 @@ class User < ActiveRecord::Base
 
   def forget
     update_attribute(:remember_digest, nil)
-  end      
+  end
+
+  # Creates and assigns the activation token and digest.
+  def create_activation_digest
+    activation_token  = User.new_token
+    activation_digest = User.digest(activation_token)
+  end    
 end

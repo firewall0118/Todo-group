@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :microposts
   end
+
+  resources :account_activations, only: [:edit]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
